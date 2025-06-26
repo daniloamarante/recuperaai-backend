@@ -176,6 +176,10 @@ const config = {
         "fromEnvVar": null,
         "value": "windows",
         "native": true
+      },
+      {
+        "fromEnvVar": null,
+        "value": "debian-openssl-3.0.x"
       }
     ],
     "previewFeatures": [],
@@ -201,8 +205,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"./generated/client\"\n}\n\ndatasource db {\n  provider = \"sqlite\"\n  url      = \"file:./dev.db\"\n}\n\nmodel License {\n  id         String   @id @default(uuid())\n  licenseKey String   @unique\n  storeUrl   String\n  platform   String\n  status     String   @default(\"pending\")\n  expiresAt  DateTime\n  createdAt  DateTime @default(now())\n}\n\nmodel Campaign {\n  id             String          @id @default(uuid())\n  name           String\n  type           String\n  triggerDelay   Int\n  status         String          @default(\"draft\")\n  subject        String?\n  content        String\n  createdAt      DateTime        @default(now())\n  abandonedCarts AbandonedCart[]\n}\n\nmodel AbandonedCart {\n  id            String    @id @default(uuid())\n  customerName  String?\n  customerEmail String\n  cartItems     Json\n  cartValue     Float\n  abandonedAt   DateTime  @default(now())\n  status        String    @default(\"abandoned\")\n  campaignId    String?\n  campaign      Campaign? @relation(fields: [campaignId], references: [id])\n  createdAt     DateTime  @default(now())\n}\n",
-  "inlineSchemaHash": "6c3e31ddd96d77ccae8e10fdced0da86265f450ec8ecf5218562e3d9b17b4f50",
+  "inlineSchema": "generator client {\n  provider      = \"prisma-client-js\"\n  binaryTargets = [\"native\", \"debian-openssl-3.0.x\"]\n  output        = \"./generated/client\"\n}\n\ndatasource db {\n  provider = \"sqlite\"\n  url      = \"file:./dev.db\"\n}\n\nmodel License {\n  id         String   @id @default(uuid())\n  licenseKey String   @unique\n  storeUrl   String\n  platform   String\n  status     String   @default(\"pending\")\n  expiresAt  DateTime\n  createdAt  DateTime @default(now())\n}\n\nmodel Campaign {\n  id             String          @id @default(uuid())\n  name           String\n  type           String\n  triggerDelay   Int\n  status         String          @default(\"draft\")\n  subject        String?\n  content        String\n  createdAt      DateTime        @default(now())\n  abandonedCarts AbandonedCart[]\n}\n\nmodel AbandonedCart {\n  id            String    @id @default(uuid())\n  customerName  String?\n  customerEmail String\n  cartItems     Json\n  cartValue     Float\n  abandonedAt   DateTime  @default(now())\n  status        String    @default(\"abandoned\")\n  campaignId    String?\n  campaign      Campaign? @relation(fields: [campaignId], references: [id])\n  createdAt     DateTime  @default(now())\n}\n",
+  "inlineSchemaHash": "7188e4c037914940f460609438572a4b1cf3dd117197c2b1933bd29838f95e1c",
   "copyEngine": true
 }
 
@@ -243,6 +247,10 @@ Object.assign(exports, Prisma)
 // file annotations for bundling tools to include these files
 path.join(__dirname, "query_engine-windows.dll.node");
 path.join(process.cwd(), "prisma/generated/client/query_engine-windows.dll.node")
+
+// file annotations for bundling tools to include these files
+path.join(__dirname, "libquery_engine-debian-openssl-3.0.x.so.node");
+path.join(process.cwd(), "prisma/generated/client/libquery_engine-debian-openssl-3.0.x.so.node")
 // file annotations for bundling tools to include these files
 path.join(__dirname, "schema.prisma");
 path.join(process.cwd(), "prisma/generated/client/schema.prisma")
