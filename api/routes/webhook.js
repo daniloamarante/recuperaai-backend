@@ -1,7 +1,8 @@
 
 const express = require('express');
 const router = express.Router();
-const { PrismaClient } = require('../../../prisma/generated/client');
+const { PrismaClient } = require('../../../../prisma/generated/client');
+
 const prisma = new PrismaClient();
 
 router.post('/woocommerce', async (req, res) => {
