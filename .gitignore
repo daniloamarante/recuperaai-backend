@@ -1,0 +1,14 @@
+# Ignora node_modules (padrão)
+node_modules/
+
+# Ignora banco local (opcional)
+*.db
+
+# Ignora pastas de cache ou temporárias
+.env
+*.log
+.cache/
+
+# 👇 Exceção: NÃO ignore o Prisma Client gerado
+!src/prisma/generated/
+!src/prisma/generated/client/
