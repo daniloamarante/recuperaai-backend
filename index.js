@@ -24,6 +24,11 @@ app.get('/', (req, res) => {
   res.send('RecuperaAI Backend funcionando! 🚀');
 });
 
+// Rota de saúde (health check)
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'ok', timestamp: new Date().toISOString() });
+});
+
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
 });
