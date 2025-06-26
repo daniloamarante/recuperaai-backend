@@ -25,9 +25,10 @@ app.get('/', (req, res) => {
 });
 
 // Rota de saúde (health check)
-app.get('api/health', (req, res) => {
+app.get('/api/health', (req, res) => {
   res.status(200).json({ status: 'ok', timestamp: new Date().toISOString() });
 });
+
 
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
