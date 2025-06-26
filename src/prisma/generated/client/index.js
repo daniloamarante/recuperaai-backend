@@ -165,7 +165,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\Danilo Amarante\\recuperaai-backend\\prisma\\generated\\client",
+      "value": "C:\\Users\\Danilo Amarante\\recuperaai-backend\\src\\prisma\\generated\\client",
       "fromEnvVar": null
     },
     "config": {
@@ -179,7 +179,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\Danilo Amarante\\recuperaai-backend\\prisma\\schema.prisma",
+    "sourceFilePath": "C:\\Users\\Danilo Amarante\\recuperaai-backend\\src\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
@@ -211,8 +211,8 @@ const fs = require('fs')
 config.dirname = __dirname
 if (!fs.existsSync(path.join(__dirname, 'schema.prisma'))) {
   const alternativePaths = [
+    "src/prisma/generated/client",
     "prisma/generated/client",
-    "generated/client",
   ]
   
   const alternativePath = alternativePaths.find((altPath) => {
@@ -242,7 +242,7 @@ Object.assign(exports, Prisma)
 
 // file annotations for bundling tools to include these files
 path.join(__dirname, "query_engine-windows.dll.node");
-path.join(process.cwd(), "prisma/generated/client/query_engine-windows.dll.node")
+path.join(process.cwd(), "src/prisma/generated/client/query_engine-windows.dll.node")
 // file annotations for bundling tools to include these files
 path.join(__dirname, "schema.prisma");
-path.join(process.cwd(), "prisma/generated/client/schema.prisma")
+path.join(process.cwd(), "src/prisma/generated/client/schema.prisma")

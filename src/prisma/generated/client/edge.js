@@ -164,7 +164,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\Danilo Amarante\\recuperaai-backend\\prisma\\generated\\client",
+      "value": "C:\\Users\\Danilo Amarante\\recuperaai-backend\\src\\prisma\\generated\\client",
       "fromEnvVar": null
     },
     "config": {
@@ -178,7 +178,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\Danilo Amarante\\recuperaai-backend\\prisma\\schema.prisma",
+    "sourceFilePath": "C:\\Users\\Danilo Amarante\\recuperaai-backend\\src\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
