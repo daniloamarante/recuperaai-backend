@@ -1,6 +1,7 @@
 
 generator client {
   provider = "prisma-client-js"
+  output   = "./generated/client"
 }
 
 datasource db {
@@ -42,3 +43,6 @@ model AbandonedCart {
   campaign       Campaign?  @relation(fields: [campaignId], references: [id])
   createdAt      DateTime   @default(now())
 }
+
+
+
