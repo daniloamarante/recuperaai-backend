@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./prisma/generated/client"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model License {
+  id         String   @id @default(uuid())
+  licenseKey String   @unique
+  storeUrl   String
+  platform   String
+  status     String   @default("pending")
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+}
+
+model Campaign {
+  id             String          @id @default(uuid())
+  name           String
+  type           String
+  triggerDelay   Int
+  status         String          @default("draft")
+  subject        String?
+  content        String
+  createdAt      DateTime        @default(now())
+  abandonedCarts AbandonedCart[]
+}
+
+model AbandonedCart {
+  id            String    @id @default(uuid())
+  customerName  String?
+  customerEmail String
+  cartItems     Json
+  cartValue     Float
+  abandonedAt   DateTime  @default(now())
+  status        String    @default("abandoned")
+  campaignId    String?
+  campaign      Campaign? @relation(fields: [campaignId], references: [id])
+  createdAt     DateTime  @default(now())
+}
